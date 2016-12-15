@@ -63,8 +63,11 @@ int main(int argc, char *argv[])
 	strcpy(req.name, "dmar-fifo-lvds");
 	req.count = 3;
 	req.array[0] = NXS_FUNCTION_DMAR;
-	req.array[1] = NXS_FUNCTION_FIFO;
-	req.array[2] = NXS_FUNCTION_LVDS;
+	req.array[1] = NXS_FUNCTION_ANY;
+	req.array[2] = NXS_FUNCTION_FIFO;
+	req.array[3] = NXS_FUNCTION_ANY;
+	req.array[4] = NXS_FUNCTION_LVDS;
+	req.array[5] = 0; /* LVDS 0 */
 
 	ret = nxs_res_manager_request(fd, &req);
 	if (ret) {
